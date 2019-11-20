@@ -1,5 +1,6 @@
 require('pry')
 require_relative('models/artist.rb')
+require_relative('models/album.rb')
 
 Artist.delete_all()
 
@@ -19,13 +20,15 @@ artist2 = Artist.new(
 
 artist2.save()
 
-artist3 = Artist.new(
-  {
-    'name' => 'Jessie J'
-  }
-)
+album1_details = {
+  'title' => 'Frank',
+  'genre' => 'Jazz',
+  'artist_id' => artist1.id
+}
 
-artist3.save()
+album1 = Album.new(album1_details)
+
+album1.save()
 
 binding.pry
 
