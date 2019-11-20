@@ -1,3 +1,6 @@
+require_relative('../db/sql_runner.rb')
+require_relative('album.rb')
+
 class Album
 
   attr_accessor :title, :genre
@@ -26,9 +29,16 @@ class Album
   end
 
   def self.list_all()
-    sql = "SELECT * FROM albums"
+    sql = "SELECT * FROM albums;"
     albums = SqlRunner.run(sql)
     return albums.map{|album| Album.new(album)}
+  end
+
+  def artist()
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@artist_id]
+    artist = SqlRunner.run(sql, values)[0]
+    return Artist.new(artist)
   end
 
   def update()
