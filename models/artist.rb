@@ -23,6 +23,13 @@ class Artist
     return artists.map{|artist| Artist.new(artist)}
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    artist = SqlRunner.run(sql, values)[0]
+    return Artist.new(artist)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM artists"
     SqlRunner.run(sql)
