@@ -18,6 +18,12 @@ class Album
     @id = output[0]['id'].to_i()
   end
 
+  def self.list_all()
+    sql = "SELECT * FROM albums"
+    albums = SqlRunner.run(sql)
+    return albums.map{|album| Album.new(album)}
+  end
+
   def delete()
     sql = "DELETE FROM albums WHERE id = $1;"
     values = [@id]
