@@ -18,6 +18,13 @@ class Album
     @id = output[0]['id'].to_i()
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM albums WHERE id = $1;"
+    values = [id]
+    output = SqlRunner.run(sql, values)[0]
+    return Album.new(output)
+  end
+
   def self.list_all()
     sql = "SELECT * FROM albums"
     albums = SqlRunner.run(sql)
