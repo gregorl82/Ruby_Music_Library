@@ -11,6 +11,22 @@ artist1 = Artist.new(
 
 artist1.save()
 
+artist2 = Artist.new(
+  {
+    'name' => 'Adele'
+  }
+)
+
+artist2.save()
+
+artist3 = Artist.new(
+  {
+    'name' => 'Jessie J'
+  }
+)
+
+artist3.save()
+
 binding.pry
 
 nil
