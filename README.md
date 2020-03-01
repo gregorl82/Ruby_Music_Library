@@ -1,4 +1,4 @@
-<h1>SQL Music Library</h1>
+<h1>Ruby Music Library</h1>
 <p>You have been asked to create an app that will allow a music collector to manage their collection of CDs/records.</p>
 <p>In their console they would like to be able to:</p>
 <ul>
